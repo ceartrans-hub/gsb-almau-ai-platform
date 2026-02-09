@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  app:
+    build: .
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    depends_on:
+      - db
+    volumes:
+      - ./data:/app/data
+
+  db:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_USER: gsb
+      POSTGRES_PASSWORD: gsb
+      POSTGRES_DB: gsb_ai
+    ports:
+      - '5432:5432'
+    volumes:
+      - gsb_db:/var/lib/postgresql/data
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  gsb_db:

@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-50: #eef2ff;
+  --brand-100: #e0e7ff;
+  --brand-200: #c7d2fe;
+  --brand-300: #a5b4fc;
+  --brand-400: #818cf8;
+  --brand-500: #6366f1;
+  --brand-600: #4f46e5;
+  --brand-700: #4338ca;
+  --brand-800: #3730a3;
+  --brand-900: #312e81;
+  --surface: #f6f7fb;
+  --card: #ffffff;
+  --muted: #5b6476;
+  --foreground: #0f172a;
+  --font-sans: 'Manrope';
+}
+
+.dark {
+  --surface: #0b0f1a;
+  --card: #121826;
+  --muted: #a0aec0;
+  --foreground: #f8fafc;
+}
+
+body {
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+.glass {
+  background: color-mix(in srgb, var(--card) 85%, transparent);
+  backdrop-filter: blur(24px);
+  border: 1px solid color-mix(in srgb, var(--card) 70%, transparent);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8, #22d3ee);
+  -webkit-background-clip: text;
+  color: transparent;
+}
